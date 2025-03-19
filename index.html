@@ -64,8 +64,8 @@
       </ul>
 
       <div class="footer">
-        <span id="items-left">3 items left</span>
-        <div class="filters">
+        <span id="items-left"> 3 items left</span>
+        <div class="filters desktop-filters">
           <button class="filter-btn active" data-filter="all" onclick="FilterNotes('all')">All</button>
           <button class="filter-btn" data-filter="active" onclick="FilterNotes('active')">Active</button>
           <button class="filter-btn" data-filter="completed" onclick="FilterNotes('completed')">Completed</button>
@@ -74,8 +74,15 @@
       </div>
     </div>
 
-  </div>
+    <div class="mobile-footer">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all" onclick="FilterNotes('all')">All</button>
+        <button class="filter-btn" data-filter="active" onclick="FilterNotes('active')">Active</button>
+        <button class="filter-btn" data-filter="completed" onclick="FilterNotes('completed')">Completed</button>
+      </div>
+    </div>
 
+  </div>
 
   <footer class="container">
     &copy; <span id="currentYear"></span> Coded by <a href="https://www.linkedin.com/in/yousryessam/"

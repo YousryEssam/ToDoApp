@@ -105,6 +105,21 @@ function FilterNotes(filter) {
         }
     });
 }
+// remin items count
+function UpdateItemsCount() {
+    const items_left_span = document.getElementById('items-left');
+    const todoList = document.getElementById('todo-list'); 
+    // Convert to array & filter out the template <li> elements
+    const todoItems = [...todoList.children].filter(item => !item.classList.contains('template'));
+    let cnt = 0 ;
+    todoItems.forEach(item => {
+        const checkbox = item.querySelector('.task-checkbox'); 
+        if (!checkbox.checked) {
+            cnt++;
+        }
+    }); 
+    items_left_span.textContent = cnt + " items left";
+}
 
 function ClearCompleted() {
     const todoList = document.getElementById('todo-list');
@@ -116,3 +131,4 @@ function ClearCompleted() {
         }
     });
 }
+setInterval(UpdateItemsCount, 100);

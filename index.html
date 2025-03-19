@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo App</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+
+  <!-- style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="body">
+
+  <!-- Header -->
+  <div class="bg-img-container" id="bg-img-container">
+    <div class="container head-section">
+      <h1>ToDo</h1>
+      <span class="Mode-switch" onclick="SwitchMode()">
+        <img id="switch-icon" src="images/icon-moon.svg" alt="My Icon">
+      </span>
+    </div>
+  </div>
+
+  <div class="ToDo-List-Section container">
+    <div class="new-item-section">
+      <div class="typing-box">
+        <input type="checkbox" id="add-checkbox">
+        <input type="text" placeholder="Currently typing" class="text-area" id="add-text-area">
+      </div>
+    </div>
+
+    <div class="todo-container">
+      <ul id="todo-list">
+        <li style="display: none;" id="to-do-template" class="template">
+          <input type="checkbox" class="task-checkbox">
+          <span class="task-text" id="note-text"></span>
+          <button class="delete-btn" onclick="RemoveNote(this)"> <img src="images/icon-cross.svg" alt=""> </button>
+        </li>
+        <li>
+          <input type="checkbox" class="task-checkbox" checked>
+          <span class="task-text">Jog around the park 3x</span>
+          <button class="delete-btn" onclick="RemoveNote(this)"> <img src="images/icon-cross.svg" alt=""> </button>
+        </li>
+        <li>
+          <input type="checkbox" class="task-checkbox">
+          <span class="task-text">10 minutes meditation</span>
+          <button class="delete-btn" onclick="RemoveNote(this)"><img src="images/icon-cross.svg" alt=""> </button>
+        </li>
+        <li>
+          <input type="checkbox" class="task-checkbox">
+          <span class="task-text">Read for 1 hour</span>
+          <button class="delete-btn" onclick="RemoveNote(this)"> <img src="images/icon-cross.svg" alt=""> </button>
+        </li>
+      </ul>
+
+      <div class="footer">
+        <span id="items-left">3 items left</span>
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all" onclick="FilterNotes('all')">All</button>
+          <button class="filter-btn" data-filter="active" onclick="FilterNotes('active')">Active</button>
+          <button class="filter-btn" data-filter="completed" onclick="FilterNotes('completed')">Completed</button>
+        </div>
+        <button id="clear-completed">Clear Completed</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <footer class="container">
+    &copy; <span id="currentYear"></span> Coded by <a href="https://www.linkedin.com/in/yousryessam/"
+      target="_blank">Yousry Essam</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

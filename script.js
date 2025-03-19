@@ -22,6 +22,7 @@ document.addEventListener("keydown", function(event) {
     if (event.key === "Enter") { 
         if (add_text_area.value !== "") {
             let clonedElement = new_to_do.cloneNode(true);
+            clonedElement.classList.remove("template");
             clonedElement.style.display = "flex";
 
             let noteText = clonedElement.querySelector("#note-text");
@@ -62,6 +63,7 @@ document.querySelectorAll('.filter-btn').forEach(button => {
     });
 });
 
+
 // Filter the to-do notes based on the selected filter button
 function FilterNotes(filter) {
     // Get the <ul> or <ol> element containing the to-do notes
@@ -84,6 +86,17 @@ function FilterNotes(filter) {
                 break;
             default:
                 console.error('Invalid filter value');
+        }
+    });
+}
+
+function ClearCompleted() {
+    const todoList = document.getElementById('todo-list');
+    const todoItems = [...todoList.children].filter(item => !item.classList.contains('template'));
+    todoItems.forEach(item => {
+        const checkbox = item.querySelector('.task-checkbox');
+        if (checkbox.checked) {
+            item.style.display = 'none';
         }
     });
 }

@@ -35,6 +35,22 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+function AddNote() {
+    var new_to_do = document.getElementById("to-do-template");
+    var add_text_area = document.getElementById("add-text-area");
+    if (add_text_area.value !== "") {
+        let clonedElement = new_to_do.cloneNode(true);
+        clonedElement.classList.remove("template");
+        clonedElement.style.display = "flex";
+
+        let noteText = clonedElement.querySelector("#note-text");
+        if (noteText) {
+            noteText.textContent = add_text_area.value;
+        }
+        add_text_area.value = ""; 
+        document.getElementById("todo-list").appendChild(clonedElement);
+    }
+}
 
 // delete to do note when delete icon is clicked
 function RemoveNote(thisElement) {
@@ -96,7 +112,7 @@ function ClearCompleted() {
     todoItems.forEach(item => {
         const checkbox = item.querySelector('.task-checkbox');
         if (checkbox.checked) {
-            item.style.display = 'none';
+            item.remove();
         }
     });
 }

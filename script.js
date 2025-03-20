@@ -54,22 +54,13 @@ function AddNote() {
 
 // delete to do note when delete icon is clicked
 function RemoveNote(thisElement) {
-    const liElement = thisElement.closest('li'); // Ensure `thisElement` is valid
+    const liElement = thisElement.closest('li');
     if (liElement) {
-        liElement.style.display = "none"; // Hide the <li> element
+        liElement.remove();
     } else {
         console.error("Error: Could not find the parent <li> element.");
     }
 }
-// Another way to remove the to do note
-
-// document.querySelectorAll('.delete-btn').forEach(button => {
-//     button.addEventListener('click', function() {
-//         const liElement = this.closest('li'); // Selects the parent <li>
-//         liElement.style.display = "none";
-//     });
-// });
-
 
 // Highlight the selected filter button
 document.querySelectorAll('.filter-btn').forEach(button => {

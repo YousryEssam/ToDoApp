@@ -30,7 +30,23 @@
   --bg-img-mobile-light: url("images/bg-mobile-light.jpg");
   --bg-img-mobile-dark: url("images/bg-mobile-dark.jpg");
 }
+/* Scroll bar  */
 
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border-radius: 25px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+
+/* *********** */
 * {
   margin: 0;
   padding: 0;
@@ -320,10 +336,15 @@ li:hover .delete-btn {
 }
 
 #clear-completed {
-  background: none;
-  border: none;
   color: red;
+  border: none;
   cursor: pointer;
+  background: none;
+}
+
+#clear-completed:hover {
+  font-weight: bolder;
+  text-shadow: 0px 0px 5px rgb(219, 75, 75);
 }
 
 .mobile-footer {
